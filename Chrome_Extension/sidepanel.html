@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Agent Controller</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 16px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        h3 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
+
+        textarea {
+            width: 100%;
+            height: 70px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            resize: vertical;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        /* Кнопки */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-primary { background-color: #0d6efd; color: white; }
+        .btn-primary:hover { background-color: #0b5ed7; }
+        .btn-primary:disabled { background-color: #6c757d; cursor: not-allowed; }
+
+        /* Логи */
+        #logs {
+            margin-top: 15px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            max-height: 350px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .log-entry { margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid #f1f1f1; }
+        .log-entry.error { color: #dc3545; }
+        .log-entry.success { color: #198754; }
+        .log-entry.reasoning {
+            color: #6610f2;
+            font-style: italic;
+            background: #f3f0ff;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        /* --- SECURITY LAYER UI --- */
+        #securityCheck {
+            display: none; /* Скрыто по умолчанию */
+            background-color: #fff3cd;
+            border: 1px solid #ffecb5;
+            color: #664d03;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            animation: fadeIn 0.3s;
+        }
+        #securityCheck strong { display: block; margin-bottom: 5px; font-size: 14px; }
+        #securityReason { margin-bottom: 10px; font-size: 13px; }
+
+        .security-actions { display: flex; gap: 8px; }
+        .btn-approve { background-color: #198754; color: white; flex: 1; }
+        .btn-deny { background-color: #dc3545; color: white; flex: 1; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<h3>🤖 Browser Agent</h3>
+
+<div id="securityCheck">
+    <strong>⚠️ Требуется подтверждение</strong>
+    <div id="securityReason">AI хочет совершить важное действие.</div>
+    <div class="security-actions">
+        <button id="approveBtn" class="btn-approve">Разрешить</button>
+        <button id="denyBtn" class="btn-deny">Запретить</button>
+    </div>
+</div>
+
+<label for="taskInput">Задача:</label>
+<textarea id="taskInput" placeholder="Например: Найди самый дешевый iPhone на Avito...">Нажми на кнопку поиска</textarea>
+
+<button id="startBtn" class="btn-primary">🚀 Start Analysis</button>
+
+<div id="logs">Ожидание команд...</div>
+
+<script src="sidepanel.js"></script>
+</body>
+</html>
