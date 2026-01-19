@@ -68,13 +68,7 @@ extension/
 ├── content.js          # 👁️ Парсинг DOM и выполнение действий (клик, ввод, скролл).
 ├── background.js       # 👻 Service Worker для событий браузера.
 └── icons/              # 🎨 (Опционально) иконки расширения.
-```text
-extension/
-├── manifest.json        # ⚙️ Manifest V3: разрешения, sidePanel.
-├── sidepanel.html       # 🖥️ UI боковой панели.
-├── sidepanel.js         # 🎮 Клиентский цикл агента и подтверждения пользователя.
-├── content.js           # 👁️ Парсинг DOM и выполнение действий (клик, ввод, скролл).
-└── background.js        # 👻 Service Worker для событий браузера.
+
 ````
 
 ---
